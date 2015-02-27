@@ -1,0 +1,82 @@
+ceph:
+  fsid: '60fefb98-6b2e-11e4-97e5-e3460dde7356'
+  monitor-count: 3
+  monitor-secret: 'AQCEoGRU+PXsFRAAdinNwhkQXLqSx44HiVQORA=='
+  osd-devices: '/dev/vdc'
+  osd-reformat: 'yes'
+ceph-osd:
+  osd-devices: '/dev/vdc'
+  osd-reformat: 'yes'
+mysql:
+  vip: '192.168.122.120'
+  dataset-size: '10%'
+keystone:
+  admin-password: 'openstack'
+  os-admin-network: '192.168.122.0/24'
+  os-internal-network: '192.168.133.0/24'
+  os-public-network: '192.168.144.0/24'
+  vip: '192.168.122.121'
+  debug: 'true'
+  log-level: 'DEBUG'
+nova-cloud-controller:
+  network-manager: 'Neutron'
+  quantum-security-groups: 'yes'
+  quantum-plugin: 'ovs'
+  neutron-external-network: ext-net
+  console-access-protocol: novnc
+  console-proxy-ip: 127.0.0.1
+  os-admin-network: '192.168.122.0/24'
+  os-internal-network: '192.168.133.0/24'
+  os-public-network: '192.168.144.0/24'
+  vip: '192.168.122.122'
+  verbose: 'True'
+  debug: 'True'
+neutron-api:
+  neutron-security-groups: 'True'
+  l2-population: 'False'
+  os-admin-network: '192.168.122.0/24'
+  os-internal-network: '192.168.133.0/24'
+  os-public-network: '192.168.144.0/24'
+  vip: '192.168.122.123'
+neutron-openvswitch:
+  disable-security-groups: 'False'
+  os-data-network: '192.168.133.0/24'
+  verbose: 'True'
+  debug: 'True'
+glance:
+  os-admin-network: '192.168.122.0/24'
+  os-internal-network: '192.168.133.0/24'
+  os-public-network: '192.168.144.0/24'
+  vip: '192.168.122.124'
+  verbose: 'True'
+  debug: 'True'
+cinder:
+  block-device: 'None'
+  overwrite: "true"
+  glance-api-version: 2
+  os-admin-network: '192.168.122.0/24'
+  os-internal-network: '192.168.133.0/24'
+  os-public-network: '192.168.144.0/24'
+  vip: '192.168.122.125'
+  verbose: 'True'
+  debug: 'True'
+nova-compute:
+  enable-live-migration: 'False'
+  migration-auth-type: "none"
+  virt-type: {{ nova_compute_virt_type }}
+  enable-resize: 'True'
+  enable-live-migration: 'True'
+  migration-auth-type: 'ssh'
+  os-data-network: '192.168.133.0/24'
+quantum-gateway:
+  instance-mtu: 1400
+  ext-port: '{{ neutron_gateway_ext_port }}'
+  plugin: ovs
+  os-data-network: '192.168.133.0/24'
+openstack-dashboard:
+  debug: 'True'
+  ubuntu-theme: 'no'
+  neutron-network-lb: 'True'
+  neutron-network-firewall: 'True'
+  neutron-network-vpn: 'True'
+  vip: '192.168.122.126'

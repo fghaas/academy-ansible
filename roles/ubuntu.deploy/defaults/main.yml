@@ -1,0 +1,5 @@
+---
+juju_use_ppa: false
+nova_compute_virt_type: 'qemu'
+neutron_gateway_ext_port: 'eth3'
+cinder_block_device: 'vdb'

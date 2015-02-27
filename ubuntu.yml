@@ -1,0 +1,20 @@
+---
+- hosts: Ubuntu
+  roles:
+    - ubuntu.common
+
+- hosts: "Ubuntu:&deploy"
+  roles:
+    - ubuntu.deploy
+
+- hosts: "Ubuntu:&controller"
+  roles:
+    - ubuntu.controller
+
+- hosts: "Ubuntu:&compute"
+  roles:
+    - ubuntu.compute
+
+- hosts: "Ubuntu:&networker"
+  roles:
+    - ubuntu.networker

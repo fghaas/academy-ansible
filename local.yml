@@ -1,0 +1,8 @@
+---
+# First, find out what distro our hosts are running
+- hosts: localhost
+  tasks:
+    - group_by: key={{ ansible_distribution }}
+
+- hosts: localhost
+  include: ubuntu.yml

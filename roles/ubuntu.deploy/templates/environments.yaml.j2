@@ -1,0 +1,8 @@
+default: manual
+
+environments:
+    manual:
+        type: manual
+        # bootstrap-host holds the host name of the machine where the
+        # bootstrap machine agent will be started.
+        bootstrap-host: {{ ansible_fqdn }}

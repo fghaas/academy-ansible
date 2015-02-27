@@ -1,0 +1,41 @@
+---
+- name: install Ubuntu Cloud Archive signing key
+  apt_key: >-
+    url="http://keyserver.ubuntu.com:11371/pks/lookup?op=get&search=0x5EDB1B62EC4926EA"
+    id="0xEC4926EA"
+    state="present"
+
+- name: enable Ubuntu Cloud Archive
+  apt_repository: >
+    repo="deb http://ubuntu-cloud.archive.canonical.com/ubuntu {{ ansible_lsb.codename }}-updates/{{ openstack_release }} main"
+    state="present"
+    update_cache=yes
+
+- name: install packages
+  apt: >-
+    name="{{ item }}"
+    state=present
+  with_items:
+    - ntp
+    - rsync
+    - screen
+    - htop
+
+- name: enable services
+  service: >-
+    name="{{ item }}"
+    state=started
+  with_items:
+    - ntp
+
+- name: Allow password authentication
+  lineinfile: >-
+    dest=/etc/ssh/sshd_config
+    regexp="^PasswordAuthentication"
+    line="PasswordAuthentication yes"
+    state=present
+
+- name: Restart ssh
+  service: >-
+    name=ssh
+    state=restarted

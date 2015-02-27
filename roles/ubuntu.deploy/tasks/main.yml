@@ -1,0 +1,66 @@
+---
+- name: enable Juju stable PPA
+  apt_repository: >-
+    repo="ppa:juju/stable"
+  when: juju_use_ppa
+
+- name: install packages required for deployment
+  apt: >
+    name="{{ item }}"
+    state=latest
+  with_items:
+    - juju-core
+    - juju-quickstart
+    - juju-deployer
+    - charm-tools
+
+- name: create Juju directory 
+  sudo: no
+  file: >-
+    dest="~/.juju"
+    state=directory
+
+- name: create Juju hosts directory 
+  sudo: no
+  file: >-
+    dest="~/.juju/hosts"
+    state=directory
+
+- name: configure Juju for manual provisioning
+  sudo: no
+  template: >-
+    src=environments.yaml.j2
+    dest="~/.juju/environments.yaml"
+
+- name: create Juju OpenStack configs
+  sudo: no
+  template: >-
+    src="{{ item.src }}"
+    dest="~/.juju/{{ item.dest }}"
+  with_items:
+    - src: 'openstack-config.yaml.j2'
+      dest: 'openstack-config.yaml'
+    - src: 'openstack-config-ha.yaml.j2'
+      dest: 'openstack-config-ha.yaml'
+    - src: 'openstack-config-ceph.yaml.j2'
+      dest: 'openstack-config-ceph.yaml'
+
+- name: copy scripts
+  sudo: no
+  copy: >-
+    src="{{ item }}"
+    dest="~/"
+    mode=0775
+  with_items:
+    - deploy-openstack.sh
+    - deploy-openstack-ha.sh
+    - deploy-openstack-ceph.sh
+
+- name: copy rc files
+  sudo: no
+  copy: >-
+    src="{{ item }}"
+    dest="~/"
+    mode=0660
+  with_items:
+    - .screenrc

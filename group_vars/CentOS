@@ -1,0 +1,5 @@
+---
+epel_minor_release_6: 8
+epel_minor_release_7: 2
+rdo_minor_release_icehouse: 4
+rdo_minor_release_juno: 1

@@ -1,0 +1,3 @@
+---
+apt_proxy_url: ''
+juju_use_ppa: true

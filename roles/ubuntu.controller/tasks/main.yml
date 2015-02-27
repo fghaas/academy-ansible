@@ -1,0 +1,31 @@
+---
+- name: copy rc files
+  sudo: no
+  copy: >-
+    src="{{ item }}"
+    dest="~/"
+    mode=0600
+  with_items:
+    - openstackrc
+    - openstackrc-ha
+    - haproxy_all.cfg
+
+- name: copy scripts
+  sudo: no
+  copy: >-
+    src="{{ item }}"
+    dest="~/"
+    mode=0775
+  with_items:
+    - create-neutron-networks
+
+- name: copy https frontends
+  copy: >-
+    src="{{ item }}"
+    dest="/etc/apache2/sites-available/"
+    mode=0644
+  with_items:
+    - keystone_https_frontend.conf
+    - glance_https_frontend.conf
+    - cinder_https_frontend.conf
+    - nova_https_frontend.conf
