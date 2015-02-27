@@ -5,4 +5,5 @@
     - group_by: key={{ ansible_distribution }}
 
 - hosts: all
+  sudo: yes
   include: ubuntu.yml
