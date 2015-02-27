@@ -1,24 +1,37 @@
 [deploy]
 deploy
+deploy.example.com
 
 [controller]
 alice
+alice.example.com
 bob
+bob.example.com
 
 [network]
 charlie
+charlie.example.com
 
 [compute]
 daisy
+daisy.example.com
 eric
+eric.example.com
 frank
+frank.example.com
 
 [ceph-mon]
 daisy
+daisy.example.com
 eric
+eric.example.com
 frank
+frank.example.com
 
 [ceph-osd]
 daisy
+daisy.example.com
 eric
+eric.example.com
 frank
+frank.example.com
