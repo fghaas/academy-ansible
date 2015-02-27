@@ -1,20 +1,25 @@
 ---
 - hosts: Ubuntu
+  sudo: yes
   roles:
     - ubuntu.common
 
 - hosts: "Ubuntu:&deploy"
+  sudo: yes
   roles:
     - ubuntu.deploy
 
 - hosts: "Ubuntu:&controller"
+  sudo: yes
   roles:
     - ubuntu.controller
 
 - hosts: "Ubuntu:&compute"
+  sudo: yes
   roles:
     - ubuntu.compute
 
 - hosts: "Ubuntu:&networker"
+  sudo: yes
   roles:
     - ubuntu.networker
