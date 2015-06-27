@@ -10,6 +10,7 @@ ceph-osd:
 mysql:
   dataset-size: '10%'
 keystone:
+  openstack-origin: cloud:trusty-{{ openstack_release }}
   admin-password: 'openstack'
   os-admin-network: '192.168.122.0/24'
   os-internal-network: '192.168.133.0/24'
@@ -17,6 +18,7 @@ keystone:
   debug: 'true'
   log-level: 'DEBUG'
 nova-cloud-controller:
+  openstack-origin: cloud:trusty-{{ openstack_release }}
   network-manager: 'Neutron'
   quantum-security-groups: 'yes'
   quantum-plugin: 'ovs'
@@ -29,6 +31,7 @@ nova-cloud-controller:
   verbose: 'True'
   debug: 'True'
 neutron-api:
+  openstack-origin: cloud:trusty-{{ openstack_release }}
   neutron-security-groups: 'True'
   l2-population: 'False'
   os-admin-network: '192.168.122.0/24'
@@ -40,12 +43,14 @@ neutron-openvswitch:
   verbose: 'True'
   debug: 'True'
 glance:
+  openstack-origin: cloud:trusty-{{ openstack_release }}
   os-admin-network: '192.168.122.0/24'
   os-internal-network: '192.168.133.0/24'
   os-public-network: '192.168.144.0/24'
   verbose: 'True'
   debug: 'True'
 cinder:
+  openstack-origin: cloud:trusty-{{ openstack_release }}
   block-device: 'None'
   overwrite: "true"
   glance-api-version: 2
@@ -55,6 +60,7 @@ cinder:
   verbose: 'True'
   debug: 'True'
 nova-compute:
+  openstack-origin: cloud:trusty-{{ openstack_release }}
   enable-live-migration: 'False'
   migration-auth-type: "none"
   virt-type: {{ nova_compute_virt_type }}
@@ -63,11 +69,13 @@ nova-compute:
   migration-auth-type: 'ssh'
   os-data-network: '192.168.133.0/24'
 quantum-gateway:
+  openstack-origin: cloud:trusty-{{ openstack_release }}
   instance-mtu: 1400
   ext-port: '{{ neutron_gateway_ext_port }}'
   plugin: ovs
   os-data-network: '192.168.133.0/24'
 openstack-dashboard:
+  openstack-origin: cloud:trusty-{{ openstack_release }}
   debug: 'True'
   ubuntu-theme: 'no'
   neutron-network-lb: 'True'
