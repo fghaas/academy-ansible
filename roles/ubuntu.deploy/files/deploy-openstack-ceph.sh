@@ -25,11 +25,11 @@ juju deploy --config $CONFIG ceph --to=4
 juju add-unit ceph --to=5
 juju add-unit ceph --to=6
 
-echo "Please reweight your OSDs, when they become available.  Run the following as root, on daisy:"
-echo
-echo "for i in 0 1 2; do ceph osd crush reweight osd.\$i 1; done"
-echo
-read -p "Press [Enter] when done..." input
+#echo "Please reweight your OSDs, when they become available.  Run the following as root, on daisy:"
+#echo
+#echo "for i in 0 1 2; do ceph osd crush reweight osd.\$i 1; done"
+#echo
+#read -p "Press [Enter] when done..." input
 
 # mysql
 juju deploy --config $CONFIG mysql --to=2
