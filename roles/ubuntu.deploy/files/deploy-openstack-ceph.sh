@@ -33,7 +33,6 @@ juju add-unit ceph --to=6
 
 # mysql
 juju deploy --config $CONFIG mysql --to=2
-juju add-relation mysql ceph
 
 # rabbitmq
 juju deploy rabbitmq-server --to=1
