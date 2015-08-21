@@ -3,22 +3,24 @@ deploy
 deploy.example.com
 
 [controller]
-alice-keystone
-alice-keystone.example.com
-alice-neutron-api
-alice-neutron-api.example.com
-alice-glance
-alice-glance.example.com
-alice-ncc
-alice-ncc.example.com
-alice-cinder
-alice-cinder.example.com
-alice-heat
-alice-heat.example.com
+alice
+alice.example.com
+gia
+gia.example.com 
+harry
+harry.example.com harry 
+ian
+ian.example.com
+julie
+julie.example.com
+ken
+ken.example.com
+laura
+laura.example.com
 
 [network]
-charlie-quantum-gateway
-charlie-quantum-gateway.example.com
+charlie
+charlie.example.com
 
 [compute]
 bob-compute
