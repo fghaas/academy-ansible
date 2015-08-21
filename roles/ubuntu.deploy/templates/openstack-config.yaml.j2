@@ -33,7 +33,7 @@ nova-compute:
   virt-type: {{ nova_compute_virt_type }}
   enable-resize: 'True'
   os-data-network: '192.168.133.0/24'
-quantum-gateway:
+neutron-gateway:
   openstack-origin: cloud:trusty-{{ openstack_release }}
   instance-mtu: 1400
   ext-port: '{{ neutron_gateway_ext_port }}'
