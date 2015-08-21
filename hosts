@@ -7,6 +7,14 @@ alice-keystone
 alice-keystone.example.com
 alice-neutron-api
 alice-neutron-api.example.com
+alice-glance
+alice-glance.example.com
+alice-ncc
+alice-ncc.example.com
+alice-cinder
+alice-cinder.example.com
+alice-heat
+alice-heat.example.com
 
 [network]
 charlie-quantum-gateway
