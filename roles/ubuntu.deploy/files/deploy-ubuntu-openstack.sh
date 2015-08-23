@@ -14,15 +14,15 @@ juju_add() {
   fi
 }
 
-juju_add alice-keystone
-juju_add bob-compute
-juju_add charlie-quantum-gateway
-juju_add alice-glance
-juju_add alice-ncc
-juju_add alice-neutron-api
-juju_add alice-cinder
-juju_add alice-heat
-juju_add alice-horizon
+juju_add alice
+juju_add bob
+juju_add charlie
+juju_add gina
+juju_add harry
+juju_add ian
+juju_add julie
+juju_add ken
+juju_add laura
 
 
 juju deploy rabbitmq-server --to=1
