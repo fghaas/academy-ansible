@@ -2,10 +2,10 @@ ceph:
   fsid: '60fefb98-6b2e-11e4-97e5-e3460dde7356'
   monitor-count: 3
   monitor-secret: 'AQCEoGRU+PXsFRAAdinNwhkQXLqSx44HiVQORA=='
-  osd-devices: '/dev/vdc'
+  osd-devices: '/dev/vda'
   osd-reformat: 'yes'
 ceph-osd:
-  osd-devices: '/dev/vdc'
+  osd-devices: '/dev/vda'
   osd-reformat: 'yes'
 mysql:
   dataset-size: '10%'
@@ -68,7 +68,7 @@ nova-compute:
   enable-live-migration: 'True'
   migration-auth-type: 'ssh'
   os-data-network: '192.168.133.0/24'
-quantum-gateway:
+neutron-gateway:
   openstack-origin: cloud:trusty-{{ openstack_release }}
   instance-mtu: 1400
   ext-port: '{{ neutron_gateway_ext_port }}'
