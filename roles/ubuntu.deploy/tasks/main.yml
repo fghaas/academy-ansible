@@ -56,6 +56,7 @@
     - deploy-openstack-ha.sh
     - deploy-openstack-ceph.sh
     - deploy-ubuntu-openstack.sh
+
 - name: copy rc files
   sudo: no
   copy: >-
@@ -64,3 +65,4 @@
     mode=0660
   with_items:
     - .screenrc
+    - .profile
