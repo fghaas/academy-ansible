@@ -64,10 +64,10 @@ juju add-relation cinder ceph
 juju add-relation cinder glance
 
 # network node
-juju deploy --config $CONFIG quantum-gateway --to=3
-juju add-relation quantum-gateway mysql
-juju add-relation quantum-gateway:amqp rabbitmq-server:amqp
-juju add-relation quantum-gateway nova-cloud-controller
+juju deploy --config $CONFIG neutron-gateway --to=3
+juju add-relation neutron-gateway mysql
+juju add-relation neutron-gateway:amqp rabbitmq-server:amqp
+juju add-relation neutron-gateway nova-cloud-controller
 
 # compute nodes
 juju deploy --config $CONFIG nova-compute --to=4

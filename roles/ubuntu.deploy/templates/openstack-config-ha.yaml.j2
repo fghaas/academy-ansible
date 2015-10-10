@@ -74,7 +74,7 @@ nova-compute:
   enable-live-migration: 'True'
   migration-auth-type: 'ssh'
   os-data-network: '192.168.133.0/24'
-quantum-gateway:
+neutron-gateway:
   openstack-origin: cloud:trusty-{{ openstack_release }}
   instance-mtu: 1400
   ext-port: '{{ neutron_gateway_ext_port }}'

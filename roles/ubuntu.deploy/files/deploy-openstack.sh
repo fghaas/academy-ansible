@@ -40,10 +40,10 @@ juju add-relation nova-compute rabbitmq-server
 juju add-relation nova-compute glance
 juju add-relation nova-compute nova-cloud-controller
 
-juju deploy --config $CONFIG quantum-gateway --to=3
-juju add-relation quantum-gateway mysql
-juju add-relation quantum-gateway:amqp rabbitmq-server:amqp
-juju add-relation quantum-gateway nova-cloud-controller
+juju deploy --config $CONFIG neutron-gateway --to=3
+juju add-relation neutron-gateway mysql
+juju add-relation neutron-gateway:amqp rabbitmq-server:amqp
+juju add-relation neutron-gateway nova-cloud-controller
 
 juju deploy --config $CONFIG cinder --to=1
 juju add-relation cinder keystone
